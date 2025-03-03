@@ -24,7 +24,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue"; // Vue 內建的函式
-import { VCard } from 'vuetify'; // 引入 Vuetify 的元件
+import { VCard } from 'vuetify/components'; // 引入 Vuetify 的元件
 
 const recipes = ref([]); // 建立一個變數來存食譜資料
 
