@@ -13,7 +13,8 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  // base: './',
+  base: '/taste_front/',
   define: {
     // '__VUE_PROD_HYDRATION_MISMATCH_DETAILS__': 'false',
     'process.env': {},
