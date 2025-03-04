@@ -4,9 +4,8 @@
     <v-btn to="/" :active="false" style="text-transform: none; font-size: 24px" class="bg-transparent">Taste of Us</v-btn>
     <v-divider></v-divider>
     <v-spacer/>
-    <v-list-item link title="Recipes"></v-list-item>
-    <v-list-item link title="Joined Groups"></v-list-item>
-    <v-list-item link title="Import Recipe"></v-list-item>
+    <!-- <v-list-item link title="Joined Groups"></v-list-item>
+    <v-list-item link title="Import Recipe"></v-list-item> -->
     <v-list>
     <v-list-item v-for="nav in navs" :key="nav.to" :prepend-icon="nav.icon" :title="nav.text" :to="nav.to"></v-list-item>
     </v-list>
@@ -25,7 +24,7 @@
   <!-- 補 v-main、router-view 才看的到頁面內容 -->
   <v-main>
     <v-app-bar color="rgba(0, 0, 0, 0)" app elevation="0">
-    <v-container class="d-flex align-center">
+    <v-container fluid class="d-flex align-center">
       <!-- :active="false" 關閉連結 -->
       <v-spacer/>
       <!-- 左側內容 -->
@@ -35,7 +34,10 @@
         </v-btn>
       </template>
 <!-- 側邊攔: 顯示 收藏食譜、我的群組、網站 footer -->
-      <!-- 登入、註冊按鈕 -->
+      <!-- 使用 v-spacer 將後面的內容推到右側 -->
+      <v-spacer></v-spacer>
+
+    <!-- 登入、註冊按鈕 -->
     <v-btn v-show="!user.isLoggedIn" to="/login">Login</v-btn>
     <v-btn v-show="!user.isLoggedIn" to="/register">Register</v-btn>
 
@@ -85,9 +87,9 @@
           <v-list-item to="/orders" prepend-icon="mdi-format-list-bulleted">
           {{ $t('nav.myOrders') }}
           </v-list-item>
-          <v-list-item to="/settings" prepend-icon="mdi-cog">
+          <!-- <v-list-item to="/settings" prepend-icon="mdi-cog">
           {{ $t('nav.settings') }}
-          </v-list-item>
+          </v-list-item> -->
           <v-list-item prepend-icon="mdi-logout" @click="logout">
           {{ $t('nav.logout') }}
           </v-list-item>
@@ -134,6 +136,18 @@ const createSnackbar = useSnackbar()
 const router = useRouter()
 const theme = useTheme()
 
+const navs = computed(() => {
+  return [
+    // 商品、訂單、回首頁
+    { to: '/favoriteRecipe', text: t('nav.favoriteRecipe'), icon: 'mdi-shopping' },
+    { to: '/userGroup', text: t('nav.userGroup'), icon: 'mdi-account-group' },
+    { to: '/importRecipe', text: t('nav.importRecipe'), icon: 'mdi-import' },
+    // <v-list-item link title="Import Recipe"></v-list-item>
+
+    // { to: '/', text: t('nav.adminOrders'), icon: 'mdi-format-list-bulleted' },
+    // { to: '/', text: t('nav.home'), icon: 'mdi-home' },
+  ]
+})
 // 導覽列項目
 // const navs = computed(() => {
 //   return [
@@ -148,8 +162,8 @@ const theme = useTheme()
     // { to: '/admin', text: t('nav.admin'), icon: 'mdi-cog', show: user.isLoggedIn && user.isAdmin },
 // 多語言
 const langs = [
-  { text: '繁體中文', value: 'zhHant' },
   { text: 'English', value: 'en' },
+  { text: '繁體中文', value: 'zhHant' },
 ]
 
 /*************  ✨ Codeium Command ⭐  *************/

@@ -82,6 +82,8 @@ export default {
     // createRecipe 新增食譜
     createRecipe: 'create recipe',
     group: 'group',
+    // favorite Recipes
+    removeFromFavoriteRecipes: 'remove from favorite recipes',
 
     // setting
     accountSetup: {

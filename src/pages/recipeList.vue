@@ -1,8 +1,7 @@
 <template>
   <div>
-    <!-- <h2>🍽️ 食譜列表</h2> -->
       <v-row>
-        <v-col cols="4">
+        <v-col cols="4" md="2">
           <v-card v-for="recipe in recipes" :key="recipe.id" class="mb-4" outlined></v-card>
           <v-img :src="recipe.image" height="150" width="150"></v-img>
         </v-col>
@@ -12,15 +11,8 @@
           <v-img :src="recipe.image" height="150" width="150"></v-img>
         </v-col>
       </v-row>
-
   </div>
 </template>
-<!-- <ul>
-      <li v-for="recipe in recipes" :key="recipe.id">
-        {{ recipe.title }}
-      </li>
-    </ul> -->
-
 
 <script setup>
 import { ref, onMounted } from "vue"; // Vue 內建的函式
