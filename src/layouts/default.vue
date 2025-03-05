@@ -4,8 +4,6 @@
     <v-btn to="/" :active="false" style="text-transform: none; font-size: 24px" class="bg-transparent">Taste of Us</v-btn>
     <v-divider></v-divider>
     <v-spacer/>
-    <!-- <v-list-item link title="Joined Groups"></v-list-item>
-    <v-list-item link title="Import Recipe"></v-list-item> -->
     <v-list>
     <v-list-item v-for="nav in navs" :key="nav.to" :prepend-icon="nav.icon" :title="nav.text" :to="nav.to"></v-list-item>
     </v-list>
